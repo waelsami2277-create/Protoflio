@@ -1,0 +1,26 @@
+# Wael Alfetyani | وائل الفتياني
+
+> The official professional portfolio of Wael Sami Alfetyani (وائل سامي الفتياني), focused on business information technology, artificial intelligence, digital transformation, entrepreneurship, project management, and business innovation.
+
+Canonical website: https://wael-alfetyani.waelsami2277.workers.dev/
+
+## About
+
+Wael Alfetyani builds practical, scalable technology solutions that connect business needs with artificial intelligence and digital innovation. This site presents his professional profile, journey, projects, partnerships, recent activities, and contact channels in Arabic and English.
+
+وائل الفتياني متخصص في تكنولوجيا معلومات الأعمال والذكاء الاصطناعي وابتكار الأعمال. يعرض هذا الموقع الرسمي نبذته المهنية ومسيرته ومشاريعه وشراكاته وآخر نشاطاته ووسائل التواصل معه.
+
+## Main sections
+
+- About / نبذة عني: https://wael-alfetyani.waelsami2277.workers.dev/#about
+- Journey / المسار: https://wael-alfetyani.waelsami2277.workers.dev/#journey
+- Projects / المشاريع: https://wael-alfetyani.waelsami2277.workers.dev/#projects
+- News / الأخبار: https://wael-alfetyani.waelsami2277.workers.dev/#news
+- Contact / تواصل: https://wael-alfetyani.waelsami2277.workers.dev/#contact
+
+## Verified profiles
+
+- LinkedIn: https://www.linkedin.com/in/wael-sami-alfetyani/
+- GitHub: https://github.com/waelsami2277-create
+- Instagram: https://www.instagram.com/wael_alfetyani/
+- F6S: https://www.f6s.com/wael-alfetyani
