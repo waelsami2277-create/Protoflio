@@ -5,22 +5,44 @@ const root = path.resolve(__dirname, '..');
 const failures = [];
 const assert = (condition, message) => { if (!condition) failures.push(message); };
 
-for (const rel of ['index.html', 'css/app.css', 'js/navigation.js']) {
+for (const rel of ['index.html', 'css/app.css', 'js/navigation.js', 'js/news.js', 'js/news-data.js']) {
   assert(fs.existsSync(path.join(root, rel)), `Missing ${rel}`);
 }
 
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const css = fs.readFileSync(path.join(root, 'css/app.css'), 'utf8');
 const js = fs.readFileSync(path.join(root, 'js/navigation.js'), 'utf8');
+const newsJs = fs.readFileSync(path.join(root, 'js/news.js'), 'utf8');
+const newsData = fs.readFileSync(path.join(root, 'js/news-data.js'), 'utf8');
+try {
+  new Function(js);
+  new Function(newsJs);
+  new Function(newsData);
+} catch (error) {
+  failures.push(`Navigation JavaScript has a syntax error: ${error.message}`);
+}
 
-for (const id of ['home', 'about', 'journey', 'impact', 'projects', 'contact']) {
+for (const id of ['home', 'about', 'journey', 'projects', 'contact']) {
   assert(html.includes(`id="${id}"`), `Missing #${id} website section`);
 }
 assert((html.match(/class="project-card reveal"/g) || []).length === 8, 'Expected exactly 8 project cards');
+for (const className of ['hero-built-section', 'about-built-section', 'journey-built-section', 'built-project-grid', 'built-contact-section']) {
+  assert(html.includes(className), `Missing semantic HTML/CSS section: ${className}`);
+}
+assert((html.match(/class="inline-en"/g) || []).length >= 8, 'English localized content is incomplete');
+assert((html.match(/class="inline-ar"/g) || []).length >= 8, 'Arabic localized content is incomplete');
 assert(html.includes('site-header') && html.includes('site-nav'), 'Website navigation is missing');
+assert(html.includes('about-linkedin-mark'), 'LinkedIn logo hotspot is missing from the about section');
 assert(html.includes('LinkedIn') && html.includes('GitHub'), 'Contact links are missing');
 assert(css.includes('@media (max-width: 620px)'), 'Mobile responsive styles are missing');
 assert(js.includes('IntersectionObserver'), 'Scroll interactions are missing');
+assert(js.includes('updateHeaderVisibility'), 'Header scroll visibility behavior is missing');
+assert(html.indexOf('id="news"') > html.indexOf('id="projects"'), 'News section must follow the Projects section');
+assert(html.indexOf('id="news"') < html.indexOf('id="contact"'), 'News section must precede the Contact section');
+assert(html.includes('js/news-data.js') && html.includes('js/news.js'), 'News scripts are not loaded');
+assert(newsJs.includes('detectSocialPlatform') && newsJs.includes('getYouTubeId'), 'Social platform detection or YouTube conversion is missing');
+assert(newsJs.includes("iframe.loading = 'lazy'"), 'YouTube embeds must be lazy loaded');
+assert(newsData.includes('window.portfolioNewsItems'), 'News items must come from the data source');
 
 for (let i = 1; i <= 6; i += 1) {
   const legacy = fs.readFileSync(path.join(root, `${i}.html`), 'utf8');
@@ -33,4 +55,3 @@ if (failures.length) {
   process.exit(1);
 }
 console.log('Validation passed: responsive portfolio website, six sections, and eight projects are present.');
-

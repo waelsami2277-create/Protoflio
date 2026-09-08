@@ -6,74 +6,105 @@
   <meta name="theme-color" content="#071f35" />
   <meta name="description" content="الموقع الشخصي لوائل الفتياني — تكنولوجيا الأعمال، الذكاء الاصطناعي وابتكار الأعمال." />
   <title>وائل الفتياني | التكنولوجيا وابتكار الأعمال</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
+  <div id="splash-screen" class="splash-screen" aria-label="شاشة ترحيب وائل الفتياني">
+    <img src="assets/FEARST.png?v=20260908-2" alt="Wael Alfetyani" />
+    <div class="splash-language" role="dialog" aria-modal="true" aria-labelledby="language-title">
+      <p id="language-title"><span>اختر اللغة</span><small>Choose your language</small></p>
+      <div class="splash-language-actions">
+        <button type="button" data-language="ar">العربية</button>
+        <button type="button" data-language="en">English</button>
+      </div>
+    </div>
+  </div>
   <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="العودة إلى الرئيسية"><strong>وائل</strong><span>الفتياني</span></a>
+  <header class="site-header section-hidden">
+    <a class="brand" href="#home" aria-label="العودة إلى الرئيسية"><img src="assets/brand-person.png?v=1" alt="صورة وائل الفتياني" /></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">القائمة</button>
     <nav id="site-nav" class="site-nav" aria-label="التنقل الرئيسي">
       <a class="active" href="#home">الرئيسية</a>
       <a href="#about">عني</a>
       <a href="#journey">المسار</a>
-      <a href="#impact">الأثر</a>
       <a href="#projects">المشاريع</a>
       <a href="#contact">تواصل</a>
     </nav>
   </header>
 
   <main id="main">
-    <section id="home" class="hero section">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">تكنولوجيا المعلومات للأعمال</p>
-        <h1>أحوّل الأفكار إلى <span>حلول رقمية</span> تصنع أثرًا.</h1>
-        <p class="hero-text">أعمل عند نقطة التقاء الأعمال والذكاء الاصطناعي والابتكار الرقمي، لبناء منتجات عملية وقابلة للنمو تعالج مشكلات حقيقية.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#projects">استكشف المشاريع <span aria-hidden="true">←</span></a>
-          <a class="button button-secondary" href="#about">تعرف إليّ</a>
+    <section id="home" class="hero-built-section" aria-label="الرئيسية">
+      <div class="hero-built-art" role="img" aria-label="صورة وائل الفتياني"></div>
+      <div class="hero-built-copy">
+        <div class="hero-built-ar" lang="ar" dir="rtl">
+          <div class="hero-name-lockup"><strong>وائل</strong><span>الفتياني</span></div>
+          <p class="hero-built-kicker">تكنولوجيا المعلومات للأعمال | التكنولوجيا وابتكار الأعمال</p>
+          <p class="hero-built-text">أعمل على بناء حلول قائمة على التكنولوجيا تقع عند نقطة التقاء الأعمال والذكاء الاصطناعي والابتكار الرقمي. ينعكس تركيزي على تحويل الأفكار إلى منتجات عملية، وأتمتة عمليات الأعمال، وابتكار حلول رقمية قابلة للتوسع تعالج مشكلات واقعية.</p>
+          <p class="hero-built-text hero-built-goal">ويحركني هدف واحد: تحويل التكنولوجيا إلى قيمة تجارية ملموسة وقابلة للقياس.</p>
+          <div class="hero-built-actions">
+            <a class="discover-hotspot" href="#about">اكتشف المزيد <span aria-hidden="true">←</span></a>
+            <button class="english-hotspot" type="button" aria-pressed="false" aria-label="تفعيل النسخة الإنجليزية"><span>Click for English</span><span aria-hidden="true">◎</span></button>
+          </div>
         </div>
-        <ul class="hero-tags" aria-label="مجالات العمل"><li>Business Technology</li><li>AI</li><li>Automation</li><li>Leadership</li></ul>
-      </div>
-      <div class="hero-visual reveal" role="img" aria-label="صورة وائل الفتياني"></div>
-    </section>
-
-    <section id="about" class="section content-section">
-      <div class="section-heading reveal">
-        <div><p class="eyebrow">نبذة عني</p><h2>التكنولوجيا وسيلة لبناء قيمة حقيقية.</h2></div>
-        <p>أبني حلولًا تجمع بين التكنولوجيا والأعمال لتحويل الأفكار إلى منتجات ذات قيمة، برؤية تركز على التنفيذ والنمو.</p>
-      </div>
-      <div class="about-grid">
-        <div class="about-photo reveal" role="img" aria-label="وائل الفتياني يعمل على حلول رقمية"></div>
-        <div class="about-content">
-          <article class="feature-card reveal"><span class="feature-number">01</span><div><h3>من أنا؟</h3><p>شخص يجمع بين التكنولوجيا والأعمال، ويبحث دائمًا عن الطريق العملي الذي ينقل الفكرة من الورق إلى السوق.</p></div></article>
-          <article class="feature-card reveal"><span class="feature-number">02</span><div><h3>ماذا أقدم؟</h3><p>حلول رقمية، أتمتة، ذكاء اصطناعي، وتطوير أفكار قابلة للنمو والتوسع.</p></div></article>
-          <article class="feature-card reveal"><span class="feature-number">03</span><div><h3>خلفيتي</h3><p>Business Information Technology، مع خبرة في إدارة المشاريع وبناء الفرق وتطوير الحلول الرقمية.</p></div></article>
-          <blockquote class="quote reveal">«الفكرة لا تصبح فرصة حقيقية حتى تجد طريقها من الورق إلى السوق.»</blockquote>
+        <div class="hero-built-en" lang="en" dir="ltr">
+          <div class="hero-name-lockup hero-name-lockup-en"><strong>Wael</strong><span>Alfetyani</span></div>
+          <p class="hero-built-kicker">Business Information Technology | Technology &amp; Business Innovation</p>
+          <p class="hero-built-text">I build technology-driven solutions at the intersection of business, artificial intelligence, and digital innovation. My focus is turning ideas into practical products, automating business processes, and creating scalable digital solutions for real-world problems.</p>
+          <p class="hero-built-text hero-built-goal">I am driven by one goal: transforming technology into tangible, measurable business value.</p>
+          <div class="hero-built-actions">
+            <a class="english-cta" href="#about">Discover more <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="journey" class="journey-section">
-      <div class="section journey-inner">
-        <div class="section-heading light reveal">
-          <div><p class="eyebrow">المسار والخبرة</p><h2>رحلة تقودها النتائج.</h2></div>
-          <p>مسار يجمع ريادة الأعمال والتنفيذ التقني والقيادة، مع تركيز واضح على تحويل الأفكار إلى حلول قابلة للنمو.</p>
+    <section id="about" class="built-split-section about-built-section" aria-label="نبذة عن وائل الفتياني">
+      <div class="built-photo about-built-photo" role="img" aria-label="وائل الفتياني يعمل على حلول رقمية"><a class="about-linkedin-mark" href="https://www.linkedin.com/in/wael-sami-alfetyani/" target="_blank" rel="noopener" aria-label="فتح حساب وائل الفتياني على LinkedIn"></a></div>
+      <div class="built-panel">
+        <div class="localized localized-ar" lang="ar" dir="rtl">
+          <p class="built-eyebrow">نبذة عني</p><h2>أحوّل الأفكار إلى قيمة حقيقية.</h2>
+          <div class="built-feature-list">
+            <article><span>01</span><div><h3>من أنا؟</h3><p>أبني حلولاً تجمع بين التكنولوجيا والأعمال لتحويل الأفكار إلى منتجات ذات قيمة حقيقية.</p></div></article>
+            <article><span>02</span><div><h3>ماذا أقدّم؟</h3><p>حلول رقمية، أتمتة، ذكاء اصطناعي، وتطوير منتجات قابلة للنمو والتوسع.</p></div></article>
+            <article><span>03</span><div><h3>خلفيتي</h3><p>تكنولوجيا معلومات الأعمال، مع خبرة في إدارة المشاريع وبناء الفرق وتطوير الحلول الرقمية.</p></div></article>
+            <article><span>04</span><div><h3>رؤيتي</h3><p>تحويل المشكلات الحقيقية إلى فرص، والأفكار الجيدة إلى منتجات قابلة للتنفيذ والنمو.</p></div></article>
+          </div>
         </div>
-        <div class="stats-grid">
-          <article class="stat-card reveal"><strong>2025</strong><h3>بداية المسار الريادي</h3><p>تأسيس HYC Digital وبناء حلول وخدمات تقنية عملية.</p></article>
-          <article class="stat-card reveal"><strong>5</strong><h3>مسارات لبناء الحلول</h3><p>Digital Solutions، AI، Automation، Web، Data وBusiness Technology.</p></article>
-          <article class="stat-card reveal"><strong>3</strong><h3>أدوار قيادية وتنفيذية</h3><p>مؤسس ومدير تنفيذي، مدير تقني، وقائد فريق.</p></article>
+        <div class="localized localized-en" lang="en" dir="ltr">
+          <p class="built-eyebrow">About me</p><h2>I turn ideas into real value.</h2>
+          <div class="built-feature-list">
+            <article><span>01</span><div><h3>Who am I?</h3><p>I build solutions that bring technology and business together to create products with measurable value.</p></div></article>
+            <article><span>02</span><div><h3>What I offer</h3><p>Digital solutions, automation, artificial intelligence, and scalable product development.</p></div></article>
+            <article><span>03</span><div><h3>My background</h3><p>Business Information Technology, with experience in project management, team building, and digital solutions.</p></div></article>
+            <article><span>04</span><div><h3>My vision</h3><p>Turn real problems into opportunities and strong ideas into executable products that grow.</p></div></article>
+          </div>
         </div>
-        <div class="roles-grid">
-          <article class="role-card reveal"><span>01</span><h3>Team Leader — GDG ZU</h3><p>قيادة فرق ومبادرات تقنية وتنظيم أنشطة وورش تعليمية.</p></article>
-          <article class="role-card reveal"><span>02</span><h3>Technical Manager — STARK</h3><p>ربط التنفيذ التقني بالاحتياج العملي وتنسيق المشاريع والقرارات التقنية.</p></article>
-          <article class="role-card reveal"><span>03</span><h3>Founder — HYC Digital</h3><p>الانتقال من الفكرة إلى مبادرة ريادية تجمع الحلول الرقمية والأتمتة والذكاء الاصطناعي.</p></article>
+      </div>
+    </section>
+
+    <section id="journey" class="built-split-section journey-built-section" aria-label="الأثر بالأرقام والمسار والخبرة">
+      <div class="built-photo journey-built-photo" role="img" aria-label="وائل الفتياني يعرض إنجازاً"></div>
+      <div class="built-panel journey-built-panel">
+        <div class="localized localized-ar" lang="ar" dir="rtl"><p class="built-eyebrow">الأثر بالأرقام</p><h2>مسار يجمع الريادة والتنفيذ والقيادة.</h2><p class="built-intro">تركيز واضح على تحويل الأفكار إلى حلول رقمية قابلة للنمو.</p></div>
+        <div class="localized localized-en" lang="en" dir="ltr"><p class="built-eyebrow">Impact in numbers</p><h2>A path combining entrepreneurship, execution, and leadership.</h2><p class="built-intro">A clear focus on turning ideas into scalable digital solutions.</p></div>
+        <div class="built-stats-grid">
+          <article><strong>2025</strong><span class="inline-ar">بداية المسار الريادي</span><span class="inline-en">Entrepreneurial journey began</span></article>
+          <article><strong>5</strong><span class="inline-ar">مسارات لبناء الحلول</span><span class="inline-en">Solution-building tracks</span></article>
+          <article><strong>3</strong><span class="inline-ar">أدوار قيادية وتنفيذية</span><span class="inline-en">Leadership and execution roles</span></article>
+        </div>
+        <div class="built-role-grid">
+          <article><b>GDG ZU</b><span class="inline-ar">قيادة فرق ومبادرات تقنية</span><span class="inline-en">Leading technical teams and initiatives</span></article>
+          <article><b>STARK</b><span class="inline-ar">ربط التنفيذ التقني بالاحتياج العملي</span><span class="inline-en">Connecting technical execution to real needs</span></article>
+          <article><b>HYC Digital</b><span class="inline-ar">من الفكرة إلى مبادرة رقمية</span><span class="inline-en">From an idea to a digital venture</span></article>
         </div>
       </div>
     </section>
 
     <section id="impact" class="section content-section">
+      <img class="impact-reference-image" src="assets/pages/4.png" alt="الأثر والأرقام: مؤشرات العمل والمهارات والشهادات والإنجازات والجوائز" />
       <div class="section-heading reveal">
         <div><p class="eyebrow">الأثر بالأرقام</p><h2>نتائج ملموسة، لا عناوين فقط.</h2></div>
         <p>أرقام ومؤشرات تعكس أثر العمل والتعلّم والتحول الرقمي.</p>
@@ -113,7 +144,45 @@
       </div>
     </section>
 
-    <section id="projects" class="projects-section">
+    <section id="projects" class="projects-section built-projects-section">
+      <div class="built-projects">
+        <div class="localized localized-ar" lang="ar" dir="rtl"><p class="built-eyebrow">المشاريع والشراكات</p><h2>مشاريع تحوّل الأفكار إلى واقع.</h2><p class="built-intro">حلول رقمية صُممت لتنظيم العمل وتحسين التجربة وبناء أثر قابل للتوسع.</p></div>
+        <div class="localized localized-en" lang="en" dir="ltr"><p class="built-eyebrow">Projects &amp; partnerships</p><h2>Projects that turn ideas into reality.</h2><p class="built-intro">Digital products designed to organize work, improve experiences, and create scalable impact.</p></div>
+        <div class="built-project-grid">
+          <a href="https://github.com/ahmedhyc/ZeroPoint" target="_blank" rel="noopener"><img class="built-project-logo" src="assets/logos/zeropoint.webp?v=2" alt="ZeroPoint logo" /><i>01</i><strong>ZeroPoint</strong><span class="inline-ar">منصة لتنظيم المشاريع والأفكار.</span><span class="inline-en">A platform for organizing projects and ideas.</span><b>↗</b></a>
+          <a href="https://github.com/waelsami2277-create/ghaith_smart" target="_blank" rel="noopener"><img class="built-project-logo" src="assets/logos/ghaith-smart-original.jpeg?v=2" alt="Ghaith Smart logo" /><i>02</i><strong>Ghaith Smart</strong><span class="inline-ar">نظام ذكي لإدارة العيادات والمواعيد.</span><span class="inline-en">Smart clinic and appointment management.</span><b>↗</b></a>
+          <a href="https://github.com/waelsami2277-create/dr-fares-clinic" target="_blank" rel="noopener"><img class="built-project-logo" src="assets/logos/dr-fares-clinic.png?v=1" alt="Dr Fares Clinic logo" /><i>03</i><strong>Dr Fares Clinic</strong><span class="inline-ar">تجربة رقمية للعيادة والحجوزات.</span><span class="inline-en">A digital clinic and booking experience.</span><b>↗</b></a>
+          <a href="https://github.com/waelsami2277-create/mawaeedkom" target="_blank" rel="noopener"><img class="built-project-logo" src="assets/logos/mawaeedkom-original.jpeg?v=2" alt="Mawaeedkom logo" /><i>04</i><strong>Mawaeedkom</strong><span class="inline-ar">منصة مرنة لحجز المواعيد.</span><span class="inline-en">A flexible appointment booking platform.</span><b>↗</b></a>
+          <a href="https://github.com/hycdigital/ChatHYC" target="_blank" rel="noopener"><img class="built-project-logo" src="assets/logos/chathyc.png?v=2" alt="ChatHYC logo" /><i>05</i><strong>ChatHYC</strong><span class="project-status inline-ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5"/><path d="M12 7v5l3.5 2"/><path d="M16.5 3.5h4v4"/></svg>قيد الإنشاء</span><span class="project-status inline-en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5"/><path d="M12 7v5l3.5 2"/><path d="M16.5 3.5h4v4"/></svg>In progress</span><span class="inline-ar">منصة موحدة للخدمات الرقمية الذكية.</span><span class="inline-en">A unified smart digital services platform.</span><b>↗</b></a>
+          <a href="https://github.com/ahmedhyc/Sakan" target="_blank" rel="noopener"><img class="built-project-logo" src="assets/logos/sakan-clean.png?v=4" alt="Sakan logo" /><i>06</i><strong>Sakan</strong><span class="inline-ar">منصة بسيطة لإدارة العقارات.</span><span class="inline-en">A simple real-estate management platform.</span><b>↗</b></a>
+          <a href="https://github.com/ahmedhyc/tawabirkom-App" target="_blank" rel="noopener"><img class="built-project-logo" src="assets/logos/tawabirkom-original.jpeg?v=2" alt="Tawabirkom logo" /><i>07</i><strong>Tawabirkom App</strong><span class="inline-ar">خدمات وطلبات رقمية سريعة.</span><span class="inline-en">Fast digital services and requests.</span><b>↗</b></a>
+          <a href="https://github.com/ahmedhyc/Aman-Flow-Citizen" target="_blank" rel="noopener"><img class="built-project-logo" src="assets/logos/aman-flow-citizen.png?v=2" alt="Aman Flow Citizen logo" /><i>08</i><strong>Aman Flow Citizen</strong><span class="inline-ar">منصة للمشاركة المجتمعية.</span><span class="inline-en">A community participation platform.</span><b>↗</b></a>
+        </div>
+      </div>
+      <img class="projects-reference-image" src="assets/pages/5.png" alt="المشاريع والشراكات: ثمانية مشاريع رقمية" />
+      <div class="english-page" lang="en" dir="ltr">
+        <p class="english-kicker">Projects & partnerships</p><h2>Ideas transformed into working products</h2>
+        <div class="english-projects">
+          <a href="https://github.com/ahmedhyc/ZeroPoint" target="_blank" rel="noopener"><strong>ZeroPoint</strong><span>Project and idea management platform</span></a>
+          <a href="https://github.com/waelsami2277-create/ghaith_smart" target="_blank" rel="noopener"><strong>Ghaith Smart</strong><span>Smart clinic and appointment management</span></a>
+          <a href="https://github.com/waelsami2277-create/dr-fares-clinic" target="_blank" rel="noopener"><strong>Dr Fares Clinic</strong><span>Digital clinic experience and booking</span></a>
+          <a href="https://github.com/waelsami2277-create/mawaeedkom" target="_blank" rel="noopener"><strong>Mawaeedkom</strong><span>Flexible appointment booking platform</span></a>
+          <a href="https://github.com/hycdigital/ChatHYC" target="_blank" rel="noopener"><strong>ChatHYC</strong><span>Unified smart digital services platform</span></a>
+          <a href="https://github.com/ahmedhyc/Sakan" target="_blank" rel="noopener"><strong>Sakan</strong><span>Simple real-estate management platform</span></a>
+          <a href="https://github.com/ahmedhyc/tawabirkom-App" target="_blank" rel="noopener"><strong>Tawabirkom App</strong><span>Fast digital services and requests</span></a>
+          <a href="https://github.com/ahmedhyc/Aman-Flow-Citizen" target="_blank" rel="noopener"><strong>Aman Flow Citizen</strong><span>Community participation platform</span></a>
+        </div>
+      </div>
+      <div class="project-hotspots" aria-label="روابط مشاريع GitHub">
+        <a class="project-hotspot project-link-1" href="https://github.com/ahmedhyc/ZeroPoint" target="_blank" rel="noopener" aria-label="فتح مشروع ZeroPoint على GitHub"></a>
+        <a class="project-hotspot project-link-2" href="https://github.com/waelsami2277-create/ghaith_smart" target="_blank" rel="noopener" aria-label="فتح مشروع Ghaith Smart على GitHub"></a>
+        <a class="project-hotspot project-link-3" href="https://github.com/waelsami2277-create/dr-fares-clinic" target="_blank" rel="noopener" aria-label="فتح مشروع Dr Fares Clinic على GitHub"></a>
+        <a class="project-hotspot project-link-4" href="https://github.com/waelsami2277-create/mawaeedkom" target="_blank" rel="noopener" aria-label="فتح مشروع Mawaeedkom على GitHub"></a>
+        <a class="project-hotspot project-link-5" href="https://github.com/hycdigital/ChatHYC" target="_blank" rel="noopener" aria-label="فتح مشروع ChatHYC على GitHub"></a>
+        <a class="project-hotspot project-link-6" href="https://github.com/ahmedhyc/Sakan" target="_blank" rel="noopener" aria-label="فتح مشروع Sakan على GitHub"></a>
+        <a class="project-hotspot project-link-7" href="https://github.com/ahmedhyc/tawabirkom-App" target="_blank" rel="noopener" aria-label="فتح مشروع Tawabirkom App على GitHub"></a>
+        <a class="project-hotspot project-link-8" href="https://github.com/ahmedhyc/Aman-Flow-Citizen" target="_blank" rel="noopener" aria-label="فتح مشروع Aman Flow Citizen على GitHub"></a>
+      </div>
       <div class="section content-section">
         <div class="section-heading reveal">
           <div><p class="eyebrow">المشاريع والشراكات</p><h2>ثمانية حلول تحوّل الأفكار إلى واقع.</h2></div>
@@ -132,7 +201,45 @@
       </div>
     </section>
 
-    <section id="contact" class="contact-section">
+    <section id="news" class="news-section" aria-labelledby="news-heading-ar news-heading-en">
+      <div class="section news-inner">
+        <div class="news-heading localized localized-ar" lang="ar" dir="rtl">
+          <p class="eyebrow">الأخبار والتحديثات</p>
+          <h2 id="news-heading-ar">آخر ما أشارك به.</h2>
+          <p>فيديوهات، مشاركات، وتحديثات من الفعاليات والمشاريع والأنشطة المهنية.</p>
+        </div>
+        <div class="news-heading localized localized-en" lang="en" dir="ltr">
+          <p class="eyebrow">News &amp; Updates</p>
+          <h2 id="news-heading-en">What I've Been Sharing.</h2>
+          <p>Videos, posts, and updates from projects, events, and professional activities.</p>
+        </div>
+        <div id="news-grid" class="news-grid"></div>
+        <button id="news-more" class="news-more" type="button" aria-expanded="false" hidden>
+          <span class="inline-ar">عرض المزيد</span><span class="inline-en">Show more</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section built-contact-section">
+      <div class="built-contact-photo" role="img" aria-label="صورة وائل الفتياني"></div>
+      <div class="built-contact-panel">
+        <div class="localized localized-ar" lang="ar" dir="rtl"><p class="built-eyebrow">للتواصل والتعاون</p><h2>لنبنِ معاً فرصاً استثنائية.</h2><p>إذا كان لديك مشروع، فكرة، أو فرصة تعاون في التكنولوجيا والأعمال، يسعدني أن نتحدث.</p><div class="built-contact-actions"><a class="email-cta" href="mailto:waelsami2277@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.7 5.5h18.6c.4 0 .7.3.7.7v11.6c0 .4-.3.7-.7.7H2.7c-.4 0-.7-.3-.7-.7V6.2c0-.4.3-.7.7-.7Zm.9 2v9.4h16.8V7.5L12 13.2 3.6 7.5Zm1.5 0L12 11.2l6.9-3.7H5.1Z"/></svg><span>waelsami2277@gmail.com</span></a></div></div>
+        <div class="localized localized-en" lang="en" dir="ltr"><p class="built-eyebrow">Connect &amp; collaborate</p><h2>Let’s build exceptional opportunities together.</h2><p>Have a project, idea, or collaboration opportunity in technology and business? I would be glad to connect.</p><div class="built-contact-actions"><a class="email-cta" href="mailto:waelsami2277@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.7 5.5h18.6c.4 0 .7.3.7.7v11.6c0 .4-.3.7-.7.7H2.7c-.4 0-.7-.3-.7-.7V6.2c0-.4.3-.7.7-.7Zm.9 2v9.4h16.8V7.5L12 13.2 3.6 7.5Zm1.5 0L12 11.2l6.9-3.7H5.1Z"/></svg><span>waelsami2277@gmail.com</span></a></div></div>
+        <div class="built-socials">
+          <a href="https://www.linkedin.com/in/wael-sami-alfetyani" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.5A2.2 2.2 0 1 1 .8 3.5a2.2 2.2 0 0 1 4.4 0ZM1 8h4.2v13H1V8Zm6.8 0h4v1.8h.1c.6-1.1 2-2.3 4.2-2.3 4.5 0 5.3 3 5.3 6.9V21h-4.2v-5.9c0-1.4 0-3.3-2-3.3s-2.3 1.5-2.3 3.2V21H7.8V8Z"/></svg></a>
+          <a href="https://github.com/waelsami2277-create" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.6 22c.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.7 1.9 2.7 1.4.1-1 .4-1.6.7-2-2.5-.3-5.1-1.3-5.1-5.6 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 3 1.1a10.4 10.4 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.4.2 2.5.1 2.8.7.8 1.1 1.7 1.1 2.9 0 4.3-2.6 5.3-5.1 5.6.4.3.8 1 .8 2v3c0 .3.2.7.8.6A11.3 11.3 0 0 0 12 .7Z"/></svg></a>
+          <a href="https://www.instagram.com/wael_alfetyani/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 1h9.6A6.2 6.2 0 0 1 23 7.2v9.6a6.2 6.2 0 0 1-6.2 6.2H7.2A6.2 6.2 0 0 1 1 16.8V7.2A6.2 6.2 0 0 1 7.2 1Zm-.2 2A4 4 0 0 0 3 7v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7Zm10.3 1.5a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 2A3.5 3.5 0 1 0 15.5 12 3.5 3.5 0 0 0 12 8.5Z"/></svg></a>
+          <a href="https://web.facebook.com/wael.sami.3705/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 22v-8h2.7l.4-3.1h-3.1V9c0-.9.3-1.5 1.6-1.5H17V4.7c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H7.6V14h2.7v8h3.4Z"/></svg></a>
+          <a href="https://www.f6s.com/wael-alfetyani" target="_blank" rel="noopener" aria-label="F6S"><svg viewBox="0 0 40 24" aria-hidden="true"><text x="1" y="18" font-size="15" font-weight="900" font-family="Arial, sans-serif">F6S</text></svg></a>
+        </div>
+      </div>
+      <img class="contact-reference-image" src="assets/pages/6.png" alt="للتواصل والتعاون مع وائل الفتياني" />
+      <div class="english-page english-contact" lang="en" dir="ltr">
+        <p class="english-kicker">Connect & collaborate</p><h2>Let’s build exceptional opportunities together.</h2>
+        <p>Have a project, an idea, or a collaboration opportunity in technology and business? I would be glad to connect.</p>
+        <a class="english-cta" href="https://www.linkedin.com/in/wael-sami-alfetyani" target="_blank" rel="noopener">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+      <a class="contact-linkedin-hotspot" href="https://www.linkedin.com/in/wael-sami-alfetyani" target="_blank" rel="noopener" aria-label="فتح صفحة وائل الفتياني على LinkedIn"></a>
       <div class="section contact-grid">
         <div class="contact-photo reveal" role="img" aria-label="صورة وائل الفتياني"></div>
         <div class="contact-copy reveal">
@@ -150,7 +257,8 @@
   </main>
 
   <footer><div class="section"><a class="brand footer-brand" href="#home"><strong>وائل</strong><span>الفتياني</span></a><p>تكنولوجيا الأعمال · الذكاء الاصطناعي · ابتكار الأعمال</p><span>© <span id="year"></span> Wael Alfetyani</span></div></footer>
+  <script src="js/news-data.js"></script>
+  <script src="js/news.js"></script>
   <script src="js/navigation.js"></script>
 </body>
 </html>
-

@@ -10,6 +10,10 @@ const mime = {
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
   '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.svg': 'image/svg+xml',
   '.md': 'text/markdown; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8'
 };
@@ -34,7 +38,7 @@ const server = http.createServer((req, res) => {
     const ext = path.extname(filePath).toLowerCase();
     res.writeHead(200, {
       'Content-Type': mime[ext] || 'application/octet-stream',
-      'Cache-Control': ext === '.png' ? 'public, max-age=31536000, immutable' : 'no-cache'
+      'Cache-Control': 'no-cache'
     });
     fs.createReadStream(filePath).pipe(res);
   });
