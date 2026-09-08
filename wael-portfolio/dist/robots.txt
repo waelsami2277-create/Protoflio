@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wael-alfetyani.waelsami2277.workers.dev/sitemap.xml

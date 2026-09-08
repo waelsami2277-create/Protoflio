@@ -2,13 +2,15 @@
   const board = document.querySelector('#news-board');
   const slideHost = document.querySelector('#news-slide');
   const dotsHost = document.querySelector('#news-dots');
+  const progressBar = document.querySelector('#news-progress-bar');
   const previousButton = document.querySelector('#news-prev');
   const nextButton = document.querySelector('#news-next');
   const items = Array.isArray(window.portfolioNewsItems) ? window.portfolioNewsItems : [];
-  const AUTO_ROTATE_INTERVAL = 7000;
+  const AUTO_ROTATE_INTERVAL = 5000;
   let activeIndex = 0;
   let timer = null;
   let paused = false;
+  let pointerStartX = null;
 
   const platforms = {
     youtube: { label: 'YouTube', mark: '▶' }, instagram: { label: 'Instagram', mark: '◎' },
@@ -130,20 +132,13 @@
       placeholder.append(placeholderMark);
       link.append(placeholder);
     }
-    addPlatformBadge(link, platform);
-    const title = document.createElement('strong');
-    title.append(localizedSpan(item, 'title', 'ar'), localizedSpan(item, 'title', 'en'));
-    link.append(title);
-    const urlLabel = document.createElement('span');
-    urlLabel.className = 'news-link-url';
-    urlLabel.dir = 'ltr';
-    urlLabel.textContent = item.url;
-    link.append(urlLabel);
     const action = document.createElement('span');
+    action.className = 'news-preview-action';
     const actionText = platform === 'linkedin'
       ? { titleAr: 'فتح المشاركة على LinkedIn', titleEn: 'Open on LinkedIn' }
       : { titleAr: 'مشاهدة الفيديو أو المنشور', titleEn: 'View video or post' };
     action.append(localizedSpan(actionText, 'title', 'ar'), localizedSpan(actionText, 'title', 'en'));
+    action.append(document.createTextNode(' ↗'));
     link.append(action);
     return link;
   };
@@ -231,7 +226,10 @@
     external.rel = 'noopener noreferrer';
     external.className = 'news-external';
     external.setAttribute('aria-label', `Open ${platformDetails(platform).label} video or post in a new tab`);
-    external.textContent = '↗';
+    const externalLabel = platform === 'linkedin'
+      ? { titleAr: 'فتح LinkedIn', titleEn: 'Open LinkedIn' }
+      : { titleAr: 'فتح المصدر', titleEn: 'Open source' };
+    external.append(localizedSpan(externalLabel, 'title', 'ar'), localizedSpan(externalLabel, 'title', 'en'), document.createTextNode(' ↗'));
     footer.append(time, external);
     content.append(footer);
     slide.append(content);
@@ -239,8 +237,16 @@
   };
 
   const clearTimer = () => { if (timer) { window.clearTimeout(timer); timer = null; } };
+  const restartProgress = () => {
+    if (!progressBar) return;
+    progressBar.classList.remove('is-running');
+    progressBar.style.animationDuration = `${AUTO_ROTATE_INTERVAL}ms`;
+    void progressBar.offsetWidth;
+    if (!paused && items.length > 1) progressBar.classList.add('is-running');
+  };
   const scheduleTimer = () => {
     clearTimer();
+    restartProgress();
     if (!paused && items.length > 1) timer = window.setTimeout(() => showSlide(activeIndex + 1), AUTO_ROTATE_INTERVAL);
   };
   const updateControls = () => {
@@ -252,14 +258,25 @@
   };
   const showSlide = (index) => {
     if (!slideHost || !items.length) return;
-    activeIndex = (index + items.length) % items.length;
+    const nextIndex = (index + items.length) % items.length;
+    const distance = (nextIndex - activeIndex + items.length) % items.length;
+    const direction = distance === 0 || distance <= items.length / 2 ? 1 : -1;
+    activeIndex = nextIndex;
     const slide = createSlide(items[activeIndex]);
+    slide.style.setProperty('--news-slide-direction', direction);
     slideHost.replaceChildren(slide);
     requestAnimationFrame(() => slide.classList.add('is-visible'));
     updateControls();
     scheduleTimer();
   };
-  const setPaused = (value) => { paused = value; if (paused) clearTimer(); else scheduleTimer(); };
+  const setPaused = (value) => {
+    paused = value;
+    board?.classList.toggle('is-paused', paused);
+    if (paused) {
+      clearTimer();
+      progressBar?.classList.remove('is-running');
+    } else scheduleTimer();
+  };
 
   if (board && slideHost && dotsHost && items.length) {
     items.forEach((_, index) => {
@@ -276,6 +293,16 @@
     board.addEventListener('mouseleave', () => setPaused(board.matches(':focus-within')));
     board.addEventListener('focusin', () => setPaused(true));
     board.addEventListener('focusout', (event) => { if (!board.contains(event.relatedTarget)) setPaused(false); });
+    board.addEventListener('pointerdown', (event) => { pointerStartX = event.clientX; });
+    board.addEventListener('pointerup', (event) => {
+      if (pointerStartX === null) return;
+      const movement = event.clientX - pointerStartX;
+      pointerStartX = null;
+      if (Math.abs(movement) < 45) return;
+      showSlide(activeIndex + (movement < 0 ? 1 : -1));
+    });
+    board.addEventListener('pointercancel', () => { pointerStartX = null; });
+    document.addEventListener('visibilitychange', () => setPaused(document.hidden));
     showSlide(0);
   }
 

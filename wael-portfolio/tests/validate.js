@@ -45,7 +45,8 @@ assert(newsJs.includes("iframe.loading = 'lazy'"), 'YouTube embeds must be lazy 
 assert(newsJs.includes('getDirectVideoType') && newsJs.includes("createElement('video')"), 'Direct video URLs must render as video controls');
 assert(newsJs.includes('getInstagramEmbedUrl') && newsJs.includes('instagram.com/${parts[0]}'), 'Instagram posts and reels must use official embeds');
 assert(html.includes('news-board') && html.includes('news-prev') && html.includes('news-next'), 'News slider controls are missing');
-assert(newsJs.includes('AUTO_ROTATE_INTERVAL = 7000') && newsJs.includes('setPaused'), 'News auto-rotation and pause behavior is missing');
+assert(newsJs.includes('AUTO_ROTATE_INTERVAL = 5000') && newsJs.includes('setPaused'), 'News 5-second auto-rotation and pause behavior is missing');
+assert(html.includes('news-progress-bar') && newsJs.includes('restartProgress'), 'News progress indicator is missing');
 assert(newsData.includes('window.portfolioNewsItems'), 'News items must come from the data source');
 
 for (let i = 1; i <= 6; i += 1) {
