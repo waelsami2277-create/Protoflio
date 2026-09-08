@@ -1,0 +1,11 @@
+{
+  "name": "wael-alfetyani-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pixel-faithful portfolio flow: FEARST splash then pages 1-6.",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node scripts/build.js",
+    "test": "node tests/validate.js"
+  }
+}

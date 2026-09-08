@@ -1,0 +1,4 @@
+dist/
+.server.out.log
+.server.err.log
+*.tgz
