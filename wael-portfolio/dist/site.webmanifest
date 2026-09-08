@@ -1,0 +1,17 @@
+{
+  "name": "وائل الفتياني | Wael Alfetyani Portfolio",
+  "short_name": "Wael Alfetyani",
+  "description": "البورتفوليو المهني الرسمي لوائل الفتياني في تكنولوجيا الأعمال والذكاء الاصطناعي وابتكار الأعمال.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#071f35",
+  "icons": [
+    {
+      "src": "/assets/brand-person.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

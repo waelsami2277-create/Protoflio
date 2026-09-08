@@ -48,6 +48,11 @@ assert(html.includes('news-board') && html.includes('news-prev') && html.include
 assert(newsJs.includes('AUTO_ROTATE_INTERVAL = 5000') && newsJs.includes('setPaused'), 'News 5-second auto-rotation and pause behavior is missing');
 assert(html.includes('news-progress-bar') && newsJs.includes('restartProgress'), 'News progress indicator is missing');
 assert(newsData.includes('window.portfolioNewsItems'), 'News items must come from the data source');
+assert(html.includes('<title>وائل الفتياني | Wael Alfetyani Portfolio</title>'), 'SEO title must identify Wael Alfetyani in Arabic and English');
+assert(html.includes('application/ld+json') && html.includes('ProfilePage') && html.includes('Wael Sami Alfetyani'), 'Person/ProfilePage structured data is incomplete');
+assert(html.includes('og:title') && html.includes('twitter:title'), 'Social discovery metadata is missing');
+assert(fs.readFileSync(path.join(root, 'robots.txt'), 'utf8').includes('OAI-SearchBot'), 'OAI-SearchBot must be allowed for AI search discovery');
+assert(fs.existsSync(path.join(root, 'llms.txt')), 'llms.txt AI discovery summary is missing');
 
 for (let i = 1; i <= 6; i += 1) {
   const legacy = fs.readFileSync(path.join(root, `${i}.html`), 'utf8');
