@@ -1,0 +1,15 @@
+SHA256 — source vs copied assets
+e8aa99dfd530a65f2ecd15231fb91acc0362f6123527e107405481a84e416fe6  /mnt/data/wael_portfolio_build/reference/portofoleo/1.png
+e8aa99dfd530a65f2ecd15231fb91acc0362f6123527e107405481a84e416fe6  /mnt/data/wael-portfolio/assets/pages/1.png
+103a762cde47fdc0f633e55d814257913055a077bb4893349dc0a0d53b47b4dc  /mnt/data/wael_portfolio_build/reference/portofoleo/2.png
+103a762cde47fdc0f633e55d814257913055a077bb4893349dc0a0d53b47b4dc  /mnt/data/wael-portfolio/assets/pages/2.png
+8a0efdea0e4689d9cef221b02b917325759a044b6418e25831facea8693ce5aa  /mnt/data/wael_portfolio_build/reference/portofoleo/3.png
+8a0efdea0e4689d9cef221b02b917325759a044b6418e25831facea8693ce5aa  /mnt/data/wael-portfolio/assets/pages/3.png
+1155ab8abaf540343f810f1cbe4a72df0a481b8267ca30740faca05674cad280  /mnt/data/wael_portfolio_build/reference/portofoleo/4.png
+1155ab8abaf540343f810f1cbe4a72df0a481b8267ca30740faca05674cad280  /mnt/data/wael-portfolio/assets/pages/4.png
+39e43fb95e48af731a601446bccf4c764f532527aa4fa1e4c43147857eedc562  /mnt/data/wael_portfolio_build/reference/portofoleo/5.png
+39e43fb95e48af731a601446bccf4c764f532527aa4fa1e4c43147857eedc562  /mnt/data/wael-portfolio/assets/pages/5.png
+6e82f6d84d7e0bfa0ac393884b77e43c098c066ab1fc19a17f70c0859dc5174a  /mnt/data/wael_portfolio_build/reference/portofoleo/6.png
+6e82f6d84d7e0bfa0ac393884b77e43c098c066ab1fc19a17f70c0859dc5174a  /mnt/data/wael-portfolio/assets/pages/6.png
+d04f1dda5d9a3f58f674397abcb41d6a97404a746b2afcacf8f743a7b84e5513  /mnt/data/wael_alfetyani_personal_brand_splash.png
+d04f1dda5d9a3f58f674397abcb41d6a97404a746b2afcacf8f743a7b84e5513  /mnt/data/wael-portfolio/assets/FEARST.png
