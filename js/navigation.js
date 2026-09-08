@@ -106,13 +106,20 @@
 
   const header = document.querySelector('.site-header');
   if (header) {
+    let lastScrollY = window.scrollY;
+    let hasScrolled = false;
     const updateHeaderVisibility = () => {
-      const revealPoint = Math.min(window.innerHeight * 0.28, 240);
-      header.classList.toggle('section-hidden', window.scrollY < revealPoint);
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY + 2;
+      const scrollingUp = currentScrollY < lastScrollY - 2;
+      if (scrollingDown && currentScrollY > 48) hasScrolled = true;
+      if (scrollingUp || currentScrollY <= 48) hasScrolled = false;
+      header.classList.toggle('section-hidden', !hasScrolled);
+      lastScrollY = currentScrollY;
     };
+    header.classList.add('section-hidden');
     window.addEventListener('scroll', updateHeaderVisibility, { passive: true });
-    window.addEventListener('resize', updateHeaderVisibility);
-    updateHeaderVisibility();
+    window.addEventListener('resize', () => { lastScrollY = window.scrollY; });
   }
 
   document.querySelector('#year').textContent = new Date().getFullYear();

@@ -11,6 +11,10 @@ for (const name of ['index.html', '1.html', '2.html', '3.html', '4.html', '5.htm
   fs.copyFileSync(path.join(root, name), path.join(out, name));
 }
 
+for (const name of ['robots.txt', 'sitemap.xml']) {
+  fs.copyFileSync(path.join(root, name), path.join(out, name));
+}
+
 for (const directory of ['assets', 'css', 'js']) {
   fs.cpSync(path.join(root, directory), path.join(out, directory), { recursive: true });
 }
