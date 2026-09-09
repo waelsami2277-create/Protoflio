@@ -122,7 +122,17 @@
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       certificateTimer = window.setInterval(advanceCertificates, 3000);
     };
-    certificateCards.forEach((card, index) => card.addEventListener('click', () => showCertificate(index)));
+    certificateCards.forEach((card, index) => {
+      card.tabIndex = 0;
+      card.setAttribute('role', 'group');
+      card.setAttribute('aria-label', `Certificate ${index + 1} of ${certificateCards.length}`);
+      card.addEventListener('click', () => showCertificate(index));
+      card.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        showCertificate(index);
+      });
+    });
     ['mouseenter', 'focusin', 'pointerdown', 'touchstart'].forEach((eventName) => certificateRail.addEventListener(eventName, pauseCertificateRail, { passive: true }));
     ['mouseleave', 'focusout', 'pointerup', 'touchend'].forEach((eventName) => certificateRail.addEventListener(eventName, () => { certificatePaused = false; startCertificateRail(); }, { passive: true }));
     document.addEventListener('visibilitychange', () => { if (!document.hidden && !certificatePaused) startCertificateRail(); });
