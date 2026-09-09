@@ -2,6 +2,7 @@
   const board = document.querySelector('#news-board');
   const slideHost = document.querySelector('#news-slide');
   const dotsHost = document.querySelector('#news-dots');
+  const stripHost = document.querySelector('#news-strip');
   const progressBar = document.querySelector('#news-progress-bar');
   const previousButton = document.querySelector('#news-prev');
   const nextButton = document.querySelector('#news-next');
@@ -236,6 +237,34 @@
     return slide;
   };
 
+  const createStripItem = (item, index) => {
+    const platform = item.platform || detectSocialPlatform(item.url);
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `news-strip-card news-strip-card-${platform}`;
+    button.setAttribute('aria-label', `Go to news item ${index + 1}`);
+    const visual = document.createElement('span');
+    visual.className = 'news-strip-visual';
+    if (item.thumbnail) {
+      const image = document.createElement('img');
+      image.src = item.thumbnail;
+      image.alt = '';
+      image.loading = 'lazy';
+      visual.append(image);
+    } else {
+      const mark = document.createElement('b');
+      mark.textContent = platformDetails(platform).mark;
+      mark.setAttribute('aria-hidden', 'true');
+      visual.append(mark);
+    }
+    const copy = document.createElement('span');
+    copy.className = 'news-strip-copy';
+    copy.append(localizedSpan(item, 'title', 'ar'), localizedSpan(item, 'title', 'en'));
+    button.append(visual, copy);
+    button.addEventListener('click', () => showSlide(index));
+    return button;
+  };
+
   const clearTimer = () => { if (timer) { window.clearTimeout(timer); timer = null; } };
   const restartProgress = () => {
     if (!progressBar) return;
@@ -254,6 +283,14 @@
       dot.classList.toggle('is-active', index === activeIndex);
       dot.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
     });
+    if (stripHost) {
+      [...stripHost.children].forEach((card, index) => {
+        card.classList.toggle('is-active', index === activeIndex);
+        card.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
+      });
+      const activeCard = stripHost.children[activeIndex];
+      if (activeCard) stripHost.scrollTo({ left: activeCard.offsetLeft - ((stripHost.clientWidth - activeCard.offsetWidth) / 2), behavior: 'smooth' });
+    }
     board?.setAttribute('aria-label', `News item ${activeIndex + 1} of ${items.length}`);
   };
   const showSlide = (index) => {
@@ -265,6 +302,10 @@
     const slide = createSlide(items[activeIndex]);
     slide.style.setProperty('--news-slide-direction', direction);
     slideHost.replaceChildren(slide);
+    const media = slide.querySelector('video, iframe');
+    media?.addEventListener('play', () => setPaused(true));
+    media?.addEventListener('pause', () => { if (!board.matches(':hover') && !board.matches(':focus-within')) setPaused(false); });
+    media?.addEventListener('ended', () => { if (!board.matches(':hover') && !board.matches(':focus-within')) setPaused(false); });
     requestAnimationFrame(() => slide.classList.add('is-visible'));
     updateControls();
     scheduleTimer();
@@ -279,13 +320,14 @@
   };
 
   if (board && slideHost && dotsHost && items.length) {
-    items.forEach((_, index) => {
+    items.forEach((item, index) => {
       const dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'news-dot';
       dot.setAttribute('aria-label', `Go to news item ${index + 1}`);
       dot.addEventListener('click', () => showSlide(index));
       dotsHost.append(dot);
+      stripHost?.append(createStripItem(item, index));
     });
     previousButton?.addEventListener('click', () => showSlide(activeIndex - 1));
     nextButton?.addEventListener('click', () => showSlide(activeIndex + 1));
@@ -293,7 +335,10 @@
     board.addEventListener('mouseleave', () => setPaused(board.matches(':focus-within')));
     board.addEventListener('focusin', () => setPaused(true));
     board.addEventListener('focusout', (event) => { if (!board.contains(event.relatedTarget)) setPaused(false); });
-    board.addEventListener('pointerdown', (event) => { pointerStartX = event.clientX; });
+    board.addEventListener('pointerdown', (event) => {
+      pointerStartX = event.clientX;
+      if (event.target.closest('video, iframe')) setPaused(true);
+    });
     board.addEventListener('pointerup', (event) => {
       if (pointerStartX === null) return;
       const movement = event.clientX - pointerStartX;

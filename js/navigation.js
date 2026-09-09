@@ -96,6 +96,40 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach((item) => revealObserver.observe(item));
 
+  const certificateRail = document.querySelector('.certificate-list');
+  if (certificateRail) {
+    const certificateCards = [...certificateRail.querySelectorAll('.certificate-card')];
+    let certificateTimer;
+    let certificatePaused = false;
+    let activeCertificateIndex = 0;
+    const pauseCertificateRail = () => { certificatePaused = true; window.clearInterval(certificateTimer); };
+    const showCertificate = (index, smooth = true) => {
+      activeCertificateIndex = (index + certificateCards.length) % certificateCards.length;
+      certificateCards.forEach((card, cardIndex) => card.classList.toggle('is-active', cardIndex === activeCertificateIndex));
+      const card = certificateCards[activeCertificateIndex];
+      if (!card) return;
+      certificateRail.scrollTo({
+        left: card.offsetLeft - ((certificateRail.clientWidth - card.offsetWidth) / 2),
+        behavior: smooth ? 'smooth' : 'auto'
+      });
+    };
+    const advanceCertificates = () => {
+      if (certificatePaused || document.hidden) return;
+      showCertificate(activeCertificateIndex + 1);
+    };
+    const startCertificateRail = () => {
+      window.clearInterval(certificateTimer);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      certificateTimer = window.setInterval(advanceCertificates, 3000);
+    };
+    certificateCards.forEach((card, index) => card.addEventListener('click', () => showCertificate(index)));
+    ['mouseenter', 'focusin', 'pointerdown', 'touchstart'].forEach((eventName) => certificateRail.addEventListener(eventName, pauseCertificateRail, { passive: true }));
+    ['mouseleave', 'focusout', 'pointerup', 'touchend'].forEach((eventName) => certificateRail.addEventListener(eventName, () => { certificatePaused = false; startCertificateRail(); }, { passive: true }));
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && !certificatePaused) startCertificateRail(); });
+    showCertificate(0, false);
+    startCertificateRail();
+  }
+
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;

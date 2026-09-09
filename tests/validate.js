@@ -35,6 +35,7 @@ assert(html.includes('site-header') && html.includes('site-nav'), 'Website navig
 assert(html.includes('about-linkedin-mark'), 'LinkedIn logo hotspot is missing from the about section');
 assert(html.includes('LinkedIn') && html.includes('GitHub'), 'Contact links are missing');
 assert(css.includes('@media (max-width: 620px)'), 'Mobile responsive styles are missing');
+assert(css.includes('aspect-ratio: 1672 / 941') && css.includes('background-size: 100% auto'), 'Mobile about artwork must preserve its full aspect ratio');
 assert(js.includes('IntersectionObserver'), 'Scroll interactions are missing');
 assert(js.includes('updateHeaderVisibility'), 'Header scroll visibility behavior is missing');
 assert(html.indexOf('id="news"') > html.indexOf('id="projects"'), 'News section must follow the Projects section');
@@ -45,9 +46,16 @@ assert(newsJs.includes("iframe.loading = 'lazy'"), 'YouTube embeds must be lazy 
 assert(newsJs.includes('getDirectVideoType') && newsJs.includes("createElement('video')"), 'Direct video URLs must render as video controls');
 assert(newsJs.includes('getInstagramEmbedUrl') && newsJs.includes('instagram.com/${parts[0]}'), 'Instagram posts and reels must use official embeds');
 assert(html.includes('news-board') && html.includes('news-prev') && html.includes('news-next'), 'News slider controls are missing');
+assert(html.includes('news-strip') && newsJs.includes('createStripItem'), 'News visual thumbnail strip is missing');
 assert(newsJs.includes('AUTO_ROTATE_INTERVAL = 5000') && newsJs.includes('setPaused'), 'News 5-second auto-rotation and pause behavior is missing');
 assert(html.includes('news-progress-bar') && newsJs.includes('restartProgress'), 'News progress indicator is missing');
 assert(newsData.includes('window.portfolioNewsItems'), 'News items must come from the data source');
+assert((html.match(/class="certificate-card"/g) || []).length === 9, 'Certificate credential list must contain 9 items');
+assert(html.includes('certificate-action') && html.includes('certificate-proof'), 'Certificate credentials need action buttons and preview details');
+assert(css.includes('scroll-snap-type: x mandatory') && js.includes('advanceCertificates') && js.includes('setInterval(advanceCertificates, 3000)'), 'Certificate rail must auto-advance horizontally every 3 seconds');
+for (const certificateAsset of ['gdg-on-campus-core-team.pdf', 'build-with-ai-ramadan.pdf', 'sql-for-data-analysis.pdf', 'icdl.jpg']) {
+  assert(fs.existsSync(path.join(root, 'assets', 'certificates', certificateAsset)), `Missing certificate asset: ${certificateAsset}`);
+}
 assert(html.includes('<title>وائل الفتياني | Wael Alfetyani Portfolio</title>'), 'SEO title must identify Wael Alfetyani in Arabic and English');
 assert(html.includes('application/ld+json') && html.includes('ProfilePage') && html.includes('Wael Sami Alfetyani'), 'Person/ProfilePage structured data is incomplete');
 assert(html.includes('og:title') && html.includes('twitter:title'), 'Social discovery metadata is missing');
