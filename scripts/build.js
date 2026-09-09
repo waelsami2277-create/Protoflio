@@ -11,7 +11,7 @@ for (const name of ['index.html', '1.html', '2.html', '3.html', '4.html', '5.htm
   fs.copyFileSync(path.join(root, name), path.join(out, name));
 }
 
-for (const name of ['robots.txt', 'sitemap.xml', 'llms.txt', 'site.webmanifest']) {
+for (const name of ['robots.txt', 'sitemap.xml', 'llms.txt', 'site.webmanifest', 'c67d74aa6d0a49f89d8bf78bef3e8fa4.txt']) {
   fs.copyFileSync(path.join(root, name), path.join(out, name));
 }
 
