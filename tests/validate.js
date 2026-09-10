@@ -59,6 +59,10 @@ for (const certificateAsset of ['gdg-on-campus-core-team.pdf', 'build-with-ai-ra
 assert(html.includes('<title>وائل الفتياني | Wael Alfetyani Portfolio</title>'), 'SEO title must identify Wael Alfetyani in Arabic and English');
 assert(html.includes('application/ld+json') && html.includes('ProfilePage') && html.includes('Wael Sami Alfetyani'), 'Person/ProfilePage structured data is incomplete');
 assert(html.includes('og:title') && html.includes('twitter:title'), 'Social discovery metadata is missing');
+assert(html.includes('/assets/favicon-192.png'), 'The homepage must advertise the square search-result favicon');
+for (const faviconAsset of ['favicon-192.png', 'favicon-512.png']) {
+  assert(fs.existsSync(path.join(root, 'assets', faviconAsset)), `Missing favicon asset: ${faviconAsset}`);
+}
 assert(fs.readFileSync(path.join(root, 'robots.txt'), 'utf8').includes('OAI-SearchBot'), 'OAI-SearchBot must be allowed for AI search discovery');
 assert(fs.existsSync(path.join(root, 'llms.txt')), 'llms.txt AI discovery summary is missing');
 
