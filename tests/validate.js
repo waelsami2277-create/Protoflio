@@ -56,9 +56,15 @@ assert(css.includes('scroll-snap-type: x mandatory') && js.includes('advanceCert
 for (const certificateAsset of ['gdg-on-campus-core-team.pdf', 'build-with-ai-ramadan.pdf', 'sql-for-data-analysis.pdf', 'icdl.jpg']) {
   assert(fs.existsSync(path.join(root, 'assets', 'certificates', certificateAsset)), `Missing certificate asset: ${certificateAsset}`);
 }
-assert(html.includes('<title>وائل الفتياني | Wael Alfetyani Portfolio</title>'), 'SEO title must identify Wael Alfetyani in Arabic and English');
-assert(html.includes('application/ld+json') && html.includes('ProfilePage') && html.includes('Wael Sami Alfetyani'), 'Person/ProfilePage structured data is incomplete');
-assert(html.includes('og:title') && html.includes('twitter:title'), 'Social discovery metadata is missing');
+assert(html.includes('<title>Wael S. Al-Fetyani | Business Information Technology | Technology &amp; Business Innovation</title>'), 'SEO title must identify Wael S. Al-Fetyani accurately');
+assert(html.includes('application/ld+json') && html.includes('ProfilePage') && html.includes('Wael S. Al-Fetyani'), 'Person/ProfilePage structured data is incomplete');
+assert(html.includes('og:title') && html.includes('og:image') && html.includes('twitter:title') && html.includes('twitter:image'), 'Social discovery metadata is incomplete');
+assert(html.includes("Bachelor's Degree in Business Information Technology (BIT) — Zarqa University."), 'The official BIT degree must appear in the website');
+assert(html.includes('Founder &amp; CEO — HYC Digital'), 'HYC Digital founder identity is missing');
+assert(html.includes('Core Strengths') && html.includes('Business Analysis'), 'Core Strengths content is missing');
+for (const outdatedTerm of ['Verified metrics', '92%', '88%', '95%', '85%', 'Management Information Systems']) {
+  assert(!html.includes(outdatedTerm), `Outdated professional identity content remains: ${outdatedTerm}`);
+}
 assert(html.includes('/assets/favicon-192.png'), 'The homepage must advertise the square search-result favicon');
 for (const faviconAsset of ['favicon-192.png', 'favicon-512.png']) {
   assert(fs.existsSync(path.join(root, 'assets', faviconAsset)), `Missing favicon asset: ${faviconAsset}`);

@@ -1,4 +1,6 @@
-# Wael Alfetyani Portfolio
+# Wael S. Al-Fetyani Portfolio
+
+Official professional portfolio for Wael S. Al-Fetyani, a Business Information Technology graduate from Zarqa University and Founder & CEO of HYC Digital.
 
 موقع شخصي عربي متجاوب مبني كتجربة ويب كاملة، ويضم أقسام التعريف والمسار والأثر والشهادات والمشاريع والتواصل.
 
@@ -20,4 +22,3 @@ npm start
 - التواصل
 
 الملفات `1.html` إلى `6.html` محفوظة كروابط انتقال توافقية إلى أقسام الموقع الجديد.
-

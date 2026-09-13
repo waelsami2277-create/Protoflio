@@ -1,14 +1,14 @@
-# Wael Alfetyani | وائل الفتياني
+# Wael S. Al-Fetyani | وائل الفتياني
 
-> The official professional portfolio of Wael Sami Alfetyani (وائل سامي الفتياني), focused on business information technology, artificial intelligence, digital transformation, entrepreneurship, project management, and business innovation.
+> The official professional portfolio of Wael S. Al-Fetyani (Wael Sami Alfetyani), a Business Information Technology graduate from Zarqa University and Founder & CEO of HYC Digital. His work focuses on business, technology, AI, digital solutions, business analysis, and innovation.
 
 Canonical website: https://wael-alfetyani.waelsami2277.workers.dev/
 
 ## About
 
-Wael Alfetyani builds practical, scalable technology solutions that connect business needs with artificial intelligence and digital innovation. This site presents his professional profile, journey, projects, partnerships, recent activities, and contact channels in Arabic and English.
+Wael S. Al-Fetyani builds practical technology solutions that connect business needs with AI and digital innovation. This site presents his professional profile, education, HYC Digital relationship, projects, partnerships, recent activities, and contact channels in Arabic and English.
 
-وائل الفتياني متخصص في تكنولوجيا معلومات الأعمال والذكاء الاصطناعي وابتكار الأعمال. يعرض هذا الموقع الرسمي نبذته المهنية ومسيرته ومشاريعه وشراكاته وآخر نشاطاته ووسائل التواصل معه.
+وائل س. الفتياني خريج بكالوريوس تكنولوجيا معلومات الأعمال (BIT) من جامعة الزرقاء ومؤسس ومدير تنفيذي لـ HYC Digital. يعرض هذا الموقع الرسمي نبذته المهنية ومسيرته ومشاريعه وشراكاته وآخر نشاطاته ووسائل التواصل معه.
 
 ## Main sections
 
@@ -20,7 +20,8 @@ Wael Alfetyani builds practical, scalable technology solutions that connect busi
 
 ## Verified profiles
 
-- LinkedIn: https://www.linkedin.com/in/wael-sami-alfetyani/
+- LinkedIn: https://www.linkedin.com/in/wael-s-al-fetyani-894477294/
 - GitHub: https://github.com/waelsami2277-create
-- Instagram: https://www.instagram.com/wael_alfetyani/
-- F6S: https://www.f6s.com/wael-alfetyani
+- Behance: https://www.behance.net/waelsami1
+- Instagram: https://www.instagram.com/wael.sami.design
+- HYC Digital: https://hycdigital.com/

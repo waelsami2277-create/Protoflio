@@ -38,7 +38,7 @@
     document.body.classList.toggle('language-en', english);
     document.documentElement.lang = english ? 'en' : 'ar';
     document.documentElement.dir = english ? 'ltr' : 'rtl';
-    document.title = english ? 'Wael Alfetyani | Business Technology Portfolio' : 'وائل الفتياني | Wael Alfetyani Portfolio';
+    document.title = 'Wael S. Al-Fetyani | Business Information Technology | Technology & Business Innovation';
     englishButton?.setAttribute('aria-pressed', String(english));
     navLinks.forEach((link, index) => { link.textContent = languageLabels[language][index]; });
     try { localStorage.setItem('portfolio-language', language); } catch (_) {}
