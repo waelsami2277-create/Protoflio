@@ -764,6 +764,9 @@ footer p, footer span { margin: 0; font-size: .86rem; }
   .journey-built-section .built-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .journey-built-section .built-stats-grid article { box-shadow: 0 8px 20px rgba(7,31,53,.06); }
   .journey-mobile-extra { margin-top: 18px; display: grid; gap: 13px; }
+  .journey-mobile-extra.localized-en { display: none; }
+  body.language-en .journey-mobile-extra.localized-ar { display: none; }
+  body.language-en .journey-mobile-extra.localized-en { display: grid; }
   .journey-mobile-label { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .journey-mobile-label span { color: var(--navy); font-size: .94rem; font-weight: 900; }
   .journey-mobile-label b { color: var(--muted); font-size: .68rem; font-weight: 700; }
